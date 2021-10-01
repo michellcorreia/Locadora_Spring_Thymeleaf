@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>Nova Categoria</title>
+
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+	<div class="container" style="text-align: center; width: 1117px;">
+		<div th:replace="fragments/title :: title"/>
+
+		<h2>Adicione uma Nova Categoria</h2>
+		<form th:action="@{/addnew/category}" th:object="${emptyObject}" method="POST">
+			<label>Nome da Nova Categoria:</label><br>
+			<input type="text" name="name" th:field="*{name}" placeholder="Nome do filme"> <br><br>
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+
+		<br><br>
+
+		<table class="table table-striped table-dark">
+					<thead class="thead-dark">
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each=" category : ${categories}">
+					<td th:text="${category.id}"></td>
+					<td th:text="${category.name}"></td>
+					<td style="text-align: right;"></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+	</div>
+</body>
+
+
+
+
+</html>

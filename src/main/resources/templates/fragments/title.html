@@ -1,0 +1,17 @@
+<div xmlns:th="http://www.thymeleaf.org" class="row" th:fragment="title">
+		<h1 style="text-align: center; background-color: black; color: white"><a href="/index"
+				style="text-decoration: none; color:white">Locadora</a> </h1>
+
+		<div class="row" style="margin: 0; display: block;">
+
+			<div style="text-align: center; ">
+				<a th:href="@{/collection}" class="btn btn-primary btn-sm mb-3"
+					style="color:white"><strong>Collection</strong></a>
+				<a th:href="@{/clientList}" class="btn btn-primary btn-sm mb-3"
+					style="color:white"><strong>Registered Clients</strong></a>
+				<a th:href="@{/rentList}" class="btn btn-primary btn-sm mb-3"
+					style="color:white"><strong>Aluguéis</strong></a>
+			</div>
+			<br><br>
+		</div>
+</div>
