@@ -8,7 +8,7 @@ public interface PersonService {
 
 	List<Person> getAllPersons();
 	
-	Person findPersonById(Long id);
+	Person findById(Long id);
 	
 	void addPerson(Person person);
 	

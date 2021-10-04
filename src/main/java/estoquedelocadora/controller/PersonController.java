@@ -49,7 +49,7 @@ public class PersonController {
 	
 	@GetMapping("/clientUpdate/{id}")
 	public String updatePerson(@PathVariable Long id, Model model) {
-		model.addAttribute("client", personService.findPersonById(id));
+		model.addAttribute("client", personService.findById(id));
 		return "client_update";
 	}
 	

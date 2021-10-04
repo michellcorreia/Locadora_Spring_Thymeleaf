@@ -12,6 +12,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
 		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 
@@ -23,7 +24,7 @@
 		<h2>Adicione uma Nova Categoria</h2>
 		<form th:action="@{/addnew/category}" th:object="${emptyObject}" method="POST">
 			<label>Nome da Nova Categoria:</label><br>
-			<input type="text" name="name" th:field="*{name}" placeholder="Nome do filme"> <br><br>
+			<input type="text" name="name" th:field="*{name}" placeholder="Nome da categoria"> <br><br>
 
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
@@ -43,7 +44,10 @@
 				<tr th:each=" category : ${categories}">
 					<td th:text="${category.id}"></td>
 					<td th:text="${category.name}"></td>
-					<td style="text-align: right;"></td>
+					<td style="text-align: right;">
+						<a th:href="@{/category/edit/{id} (id = ${category.id})}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+						<a th:href="@{/delete/{id} (id= ${category.id})}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?')"><i class="fa fa-trash" style="color: black;"></i></a>
+					</td>
 				</tr>
 			</tbody>
 		</table>

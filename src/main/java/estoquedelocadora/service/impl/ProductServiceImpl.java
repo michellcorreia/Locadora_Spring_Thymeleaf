@@ -19,15 +19,15 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> getAllMovies() {
 		return productRepository.findAll();
 	}
+	
+	@Override
+	public Product findById(Long id) {
+		return productRepository.findById(id).get();
+	}
 
 	@Override
 	public void addMovie(Product product) {
 		productRepository.save(product);
-	}
-
-	@Override
-	public Product findById(Long id) {
-		return productRepository.findById(id).get();
 	}
 
 	@Override
